@@ -60,7 +60,7 @@ export default function InputField({
           value={formatValue(safeValue)}
           onChange={handleChange}
           sx={{
-            borderRadius: 2,
+            borderRadius: 0.5,
             fontWeight: 500,
             fontSize: "1rem",
             backgroundColor: readonly ? "action.hover" : "background.paper",

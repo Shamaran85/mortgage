@@ -1,12 +1,11 @@
-import { Box, Grid, Stack, useTheme } from "@mui/material";
+import { Box, Grid, Stack } from "@mui/material";
 import MortgageInputs from "./MortgageInputs";
 import MonthlyCost from "./MonthlyCost";
-import MortgageDetails from "./MortgageDetails";
+
 import { useState } from "react";
+import MortgageDetails from "./Mortgage/MortgageDetails";
 
 export default function Desktop() {
-  const theme = useTheme();
-
   // 🔢 State för alla inputs
   const [price, setPrice] = useState(3345000);
   const [downPayment, setDownPayment] = useState(3345000 * 0.15);
@@ -14,7 +13,6 @@ export default function Desktop() {
   const [income, setIncome] = useState(94000);
   const [maintenanceCost, setMaintenanceCost] = useState(1456);
   const [monthlyFee, setMonthlyFee] = useState(7348);
-  const [propertyType, setPropertyType] = useState<"house" | "condo">("house");
 
   const sharedProps = {
     price,
@@ -23,7 +21,6 @@ export default function Desktop() {
     income,
     maintenanceCost,
     monthlyFee,
-    propertyType,
   };
 
   return (
@@ -66,8 +63,6 @@ export default function Desktop() {
                 setMaintenanceCost={setMaintenanceCost}
                 monthlyFee={monthlyFee}
                 setMonthlyFee={setMonthlyFee}
-                propertyType={propertyType}
-                setPropertyType={setPropertyType}
               />
             </Box>
           </Grid>

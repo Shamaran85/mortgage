@@ -7,7 +7,6 @@ interface MortgageInput {
   income: number;
   maintenanceCost: number;
   monthlyFee: number;
-  propertyType: "house" | "condo";
 }
 
 interface MortgageResult {
@@ -29,7 +28,6 @@ export function useMortgageCalculation({
   income,
   maintenanceCost,
   monthlyFee,
-  propertyType,
 }: MortgageInput): MortgageResult {
   return useMemo(() => {
     // Loan & ratios
@@ -51,16 +49,14 @@ export function useMortgageCalculation({
     const interestCost = loanAmount * (interestRate / 100 / 12);
     const interestCostAfterDeduction = interestCost * 0.72;
 
-    const monthlyFeeCost = propertyType === "condo" ? monthlyFee : 0;
-
     // Totals
     const totalBeforeDeduction =
-      amortizationPerMonth + interestCost + maintenanceCost + monthlyFeeCost;
+      amortizationPerMonth + interestCost + maintenanceCost + monthlyFee;
     const totalAfterDeduction =
       amortizationPerMonth +
       interestCostAfterDeduction +
       maintenanceCost +
-      monthlyFeeCost;
+      monthlyFee;
 
     return {
       loanAmount,
@@ -70,17 +66,8 @@ export function useMortgageCalculation({
       amortizationPerMonth,
       interestCost,
       interestCostAfterDeduction,
-      monthlyFeeCost,
       totalBeforeDeduction,
       totalAfterDeduction,
     };
-  }, [
-    price,
-    downPayment,
-    interestRate,
-    income,
-    maintenanceCost,
-    monthlyFee,
-    propertyType,
-  ]);
+  }, [price, downPayment, interestRate, income, maintenanceCost, monthlyFee]);
 }

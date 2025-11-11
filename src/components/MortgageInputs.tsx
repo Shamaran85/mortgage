@@ -1,6 +1,5 @@
 import { useMemo } from "react";
-import { Box, Slider, Stack, Grid } from "@mui/material";
-import PropertyTypeSelector from "./PropertyTypeSelector";
+import { Box, Slider, Stack } from "@mui/material";
 import InputField from "./InputField";
 
 interface Props {
@@ -16,8 +15,6 @@ interface Props {
   setMaintenanceCost: (value: number) => void;
   monthlyFee: number;
   setMonthlyFee: (value: number) => void;
-  propertyType: "house" | "condo";
-  setPropertyType: (value: "house" | "condo") => void;
 }
 
 const formatMoney = (v: number) =>
@@ -39,8 +36,6 @@ export default function MortgageInputs({
   setMaintenanceCost,
   monthlyFee,
   setMonthlyFee,
-  propertyType,
-  setPropertyType,
 }: Props) {
   const minDownPayment = useMemo(() => Math.round(price * 0.15), [price]);
   const downPaymentPercent = useMemo(
@@ -51,10 +46,10 @@ export default function MortgageInputs({
   return (
     <Stack spacing={3}>
       {/* 🏠 Boendetyp */}
-      <PropertyTypeSelector
+      {/* <PropertyTypeSelector
         propertyType={propertyType}
         setPropertyType={setPropertyType}
-      />
+      /> */}
 
       {/* 💰 Pris */}
       <Box>
@@ -156,14 +151,14 @@ export default function MortgageInputs({
       />
 
       {/* 🏢 Avgift (bostadsrätt) */}
-      {propertyType === "condo" && (
-        <InputField
-          label="Månadsavgift"
-          value={monthlyFee}
-          onChange={setMonthlyFee}
-          unit="kr/mån"
-        />
-      )}
+      {/* {propertyType === "condo" && ( */}
+      <InputField
+        label="Månadsavgift"
+        value={monthlyFee}
+        onChange={setMonthlyFee}
+        unit="kr/mån"
+      />
+      {/* )} */}
     </Stack>
   );
 }

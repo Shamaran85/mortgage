@@ -11,7 +11,6 @@ export default function Mobile() {
   const [income, setIncome] = useState(55000);
   const [maintenanceCost, setMaintenanceCost] = useState(2500);
   const [monthlyFee, setMonthlyFee] = useState(3000);
-  const [propertyType, setPropertyType] = useState<"house" | "condo">("house");
 
   const sharedProps = {
     price,
@@ -20,7 +19,6 @@ export default function Mobile() {
     income,
     maintenanceCost,
     monthlyFee,
-    propertyType,
   };
 
   return (
@@ -59,8 +57,6 @@ export default function Mobile() {
               setMaintenanceCost={setMaintenanceCost}
               monthlyFee={monthlyFee}
               setMonthlyFee={setMonthlyFee}
-              propertyType={propertyType}
-              setPropertyType={setPropertyType}
             />
           </Box>
 

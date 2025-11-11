@@ -1,4 +1,4 @@
-import { Box, Typography, Divider } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function Footer() {
   return (
@@ -9,19 +9,10 @@ export default function Footer() {
         bgcolor: "#153b82", // mörkare variant av headerfärgen
         color: "#fff",
         textAlign: "center",
-        py: { xs: 3, sm: 4 },
+        py: { xs: 3 },
         borderTop: "1px solid rgba(255,255,255,0.15)",
       }}
     >
-      <Divider
-        sx={{
-          mb: 2,
-          bgcolor: "rgba(255,255,255,0.15)",
-          width: "60%",
-          mx: "auto",
-        }}
-      />
-
       <Typography
         variant="body2"
         sx={{

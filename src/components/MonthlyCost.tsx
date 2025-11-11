@@ -9,7 +9,6 @@ interface Props {
   income: number;
   maintenanceCost: number;
   monthlyFee: number;
-  propertyType: "house" | "condo";
 }
 
 const formatMoney = (val: number) =>
@@ -27,11 +26,13 @@ export default function MonthlyCost(props: Props) {
     <Paper
       elevation={0}
       sx={{
+        width: { xs: "90%", md: "100%" },
+        margin: "24px auto",
         p: { xs: 3, sm: 4 },
         textAlign: "center",
         border: "1px solid",
         borderColor: "divider",
-        borderRadius: 1,
+        borderRadius: 0.5,
         backgroundColor: theme.palette.background.paper,
       }}
     >
